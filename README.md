@@ -26,43 +26,6 @@ fig, ax = bodez(Zin, ff=np.logspace(2, 5, 1000), zlines='Zin Zp', refzlines='R L
     
 
 
-
-```python
-Zin(3_000.0)
-```
-
-
-
-
-    (0.1314731604517404-0.0809519077494511j)
-
-
-
-
-```python
-Zin(np.array([100, 1_000, 10_000]))
-```
-
-
-
-
-    array([1.96890825-0.2335973j , 0.77545327-0.83623325j,
-           0.01258545+1.22414734j])
-
-
-
-
-```python
-Zin.breakfreq('R C')
-```
-
-
-
-
-    795.7747154594767
-
-
-
 ## Installation
 
 Install the fastZ package with `pip`:
@@ -206,7 +169,7 @@ fig, ax = bodez(Z, ff=np.logspace(2, 5, 1000), zlines='Z:30000 Zp:10000', refzli
 
 
     
-![png](jupyter/output_27_0.png)
+![png](jupyter/output_24_0.png)
     
 
 
@@ -219,7 +182,7 @@ fig, ax = bodez(Z, ff=np.logspace(2, 5, 1000), zlines='Zp', refzlines='R L C L2'
 
 
     
-![png](jupyter/output_29_0.png)
+![png](jupyter/output_26_0.png)
     
 
 
@@ -264,7 +227,7 @@ fig, ax = bodez(Zin, ff=np.logspace(4, 7, 1000), refzlines='R La')
 
 
     
-![png](jupyter/output_35_0.png)
+![png](jupyter/output_32_0.png)
     
 
 
@@ -352,7 +315,7 @@ ax.set_ylim((0.1, 3))
 
 
     
-![png](jupyter/output_45_1.png)
+![png](jupyter/output_42_1.png)
     
 
 
@@ -385,7 +348,7 @@ plt.show()
 
 
     
-![png](jupyter/output_48_0.png)
+![png](jupyter/output_45_0.png)
     
 
 
@@ -442,8 +405,26 @@ plt.show()
 
 
     
-![png](jupyter/output_51_0.png)
+![png](jupyter/output_48_0.png)
     
 
 
 You can see that there's a phase boost of about 40° at 10kHz. An inverted zero appears at about 300Hz to boost the low-frequency gain.
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are greatly appreciated.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## Contact
+
+Wesley Hileman - <wh@bench7.org>

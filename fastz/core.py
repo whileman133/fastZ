@@ -178,9 +178,21 @@ class CompositeZ(Z, ABC):
     def prefix(self):
         return "Z"
 
-    def __init__(self, *branches: "Z", subscript=''):
+    def __init__(self, *children: "Z", subscript=''):
+        """
+        Initialize a composite impedance object.
+
+        :param children: Two or more impedance objects to include in this composite.
+        :param subscript: The subscript to assign to this impedance object.
+        :raises ValueError: when less than two impedance objects are supplied.
+        """
+
+        if len(children) < 2:
+            raise ValueError(f"Two or more child impedances are required to construct "
+                             f"a {type(self)}, {len(children)} given.")
+
         super().__init__(subscript)
-        self._children = list(branches)
+        self._children = list(children)
 
     def __str__(self):
         text = f" {self._operator} ".join(str(z) for z in self._children)
@@ -258,7 +270,7 @@ class LumpedElement(Z, ABC):
         pass
 
     @property
-    def value(self):
+    def value(self) -> float:
         return self._value
 
     def __init__(self, subscript='', v: float = None):

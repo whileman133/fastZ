@@ -47,9 +47,11 @@ class Z(ABC):
         :return SeriesZ: Impedance object representing the series-connected impedance.
         """
 
-        if type(self) is SeriesZ:
+        if type(self) is SeriesZ and not self.subscript:
             # we're connecting another impedance in series with this composite series impedance;
             # merge the other impedance with this one to keep the operation flat
+            # !! 2024.04.16 Do not flatten if this series impedance element has a subscript so that the
+            # subscript is not lost.
             s = cast(SeriesZ, self)
             s.merge(other)
             return s
@@ -64,9 +66,11 @@ class Z(ABC):
         :return ParallelZ: Impedance object representing the parallel-connected impedance.
         """
 
-        if type(self) is ParallelZ:
+        if type(self) is ParallelZ and not self.subscript:
             # we're connecting another impedance in parallel with this composite parallel impedance;
             # merge the other impedance with this one to keep the operation flat
+            # !! 2024.04.16 Do not flatten if this parallel impedance element has a subscript so that the
+            # subscript is not lost.
             s = cast(ParallelZ, self)
             s.merge(other)
             return s
